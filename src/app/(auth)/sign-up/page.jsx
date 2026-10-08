@@ -2,11 +2,13 @@
 "use client";
 
 import { signUp, signIn } from "@/lib/auth-client";
-import { Button, Description,FieldError, Form, Input, Label,TextField,}
- from "@heroui/react";
+import { Button, Description, FieldError, Form, Input, Label, TextField, }
+    from "@heroui/react";
 import Link from "next/link";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 export default function Basic() {
 
@@ -17,9 +19,9 @@ export default function Basic() {
         const data = Object.fromEntries(formData.entries());
 
         if (data.password !== data.confirmPassword) {
-    toast.error("পাসওয়ার্ড দুটি মিলছে না");
-    return;
-}
+            toast.error("পাসওয়ার্ড দুটি মিলছে না");
+            return;
+        }
 
         const { data: resdata, error } = await signUp.email({
             name: data.name,
@@ -29,6 +31,20 @@ export default function Basic() {
         });
 
     };
+
+    const handleGoogleSignIn = async () =>{
+        const resdata = await signIn.social({
+            provider : "google"
+        });
+    };
+
+     const handleGithubSignIn = async () =>{
+        const resdata = await signIn.social({
+            provider : "github"
+        });
+    };
+
+    
 
     const handleSocialLogin = async (provider) => {
         const { data, error } = await signIn.social({
@@ -42,12 +58,12 @@ export default function Basic() {
     };
 
     return (
-        
+
         <div className="min-h-screen bg-[#F1F6F1] px-4 py-7">
-        <ToastContainer
-            position="top-center"
-            autoClose={3000}
-        />
+            <ToastContainer
+                position="top-center"
+                autoClose={3000}
+            />
 
             <div className="mx-auto w-full max-w-[418px]">
 
@@ -225,12 +241,38 @@ export default function Basic() {
                     </div>
 
 
+                    <div className="grid grid-cols-2 gap-2">
+                        <Button
+                            onClick={handleGoogleSignIn}
+                            className="h-10 w-full rounded-lg border border-[#DFE7DF] bg-transparent px-2 text-xs font-semibold text-[#263028] whitespace-nowrap gap-2"
+                        >
+                            <FcGoogle size={17} className="shrink-0" />
+                            Google দিয়ে চালিয়ে যান
+                        </Button>
+
+                        <Button
+                            onClick={handleGithubSignIn}
+                            className="h-10 w-full rounded-lg border border-[#DFE7DF] bg-transparent px-2 text-xs font-semibold text-[#263028] whitespace-nowrap gap-2"
+                        >
+                            <FaGithub size={17} className="shrink-0" />
+                            GitHub দিয়ে চালিয়ে যান
+                        </Button>
+                    </div>
+
+
+
                     <p className="mt-5 text-center text-sm text-[#263028]">
                         অ্যাকাউন্ট আছে?{" "}
-                        <Link href="/sign-in" className="font-semibold text-[#008D42] hover:underline"> সাইন ইন করুন</Link>
+                        <Link
+                            href="/sign-in"
+                            className="font-semibold text-[#008D42] hover:underline"
+                        >
+                            সাইন ইন করুন
+                        </Link>
                     </p>
 
                 </div>
+
 
                 <div className="mt-6 text-center">
                     <Link
@@ -240,6 +282,7 @@ export default function Basic() {
                         ← হোম পেজে ফিরে যান
                     </Link>
                 </div>
+
 
             </div>
         </div>
