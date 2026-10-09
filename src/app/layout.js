@@ -34,10 +34,6 @@ export default function RootLayout({ children }) {
     <hr className="divider text-gray-300 mt-5 mb-2" />
         <Marquee></Marquee>
         <hr className="divider text-gray-300 mt-2" />
-        <Banner></Banner>
-        <IncreasePrice></IncreasePrice>
-        <DecreasePrice></DecreasePrice>
-        <AllProducts></AllProducts>
         {children}
         <hr className="divider text-gray-300" />
         <Footer></Footer>
