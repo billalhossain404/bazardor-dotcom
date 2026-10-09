@@ -4,6 +4,11 @@ import Header from "@/components/Header";
 import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Marquee from "@/components/Marquee";
+import Footer from "@/components/Footer";
+import Banner from "@/components/Banner";
+import IncreasePrice from "@/components/products/IncreasePrice";
+import DecreasePrice from "@/components/products/DecreasePrice";
+import AllProducts from "@/components/products/AllProducts";
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
@@ -29,7 +34,13 @@ export default function RootLayout({ children }) {
     <hr className="divider text-gray-300 mt-5 mb-2" />
         <Marquee></Marquee>
         <hr className="divider text-gray-300 mt-2" />
+        <Banner></Banner>
+        <IncreasePrice></IncreasePrice>
+        <DecreasePrice></DecreasePrice>
+        <AllProducts></AllProducts>
         {children}
+        <hr className="divider text-gray-300" />
+        <Footer></Footer>
         </body>
     </html>
   );
