@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
+import Marquee from "@/components/Marquee";
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
@@ -25,8 +26,9 @@ export default function RootLayout({ children }) {
         <Navbar />
     </Suspense>
 
-    <hr className="divider text-gray-200 mt-4" />
-
+    <hr className="divider text-gray-300 mt-5 mb-2" />
+        <Marquee></Marquee>
+        <hr className="divider text-gray-300 mt-2" />
         {children}
         </body>
     </html>

@@ -123,7 +123,7 @@ const Header = () => {
                 {authLinks}
 
             </div>
-
+              <hr className="border-t border-gray-100 opacity-120 mt-4 mb-2" />
         </div>
     );
 };
