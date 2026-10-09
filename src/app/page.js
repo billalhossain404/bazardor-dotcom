@@ -6,10 +6,10 @@ import IncreasePrice from "@/components/products/IncreasePrice";
 export default function Home() {
   return (
     <div>
-        <Banner />
-            <IncreasePrice />
-            <DecreasePrice />
-            <AllProducts />
+      <Banner />
+      <IncreasePrice />
+      <DecreasePrice />
+      <AllProducts />
     </div>
   );
 }

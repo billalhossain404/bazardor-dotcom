@@ -5,10 +5,7 @@ import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Marquee from "@/components/Marquee";
 import Footer from "@/components/Footer";
-import Banner from "@/components/Banner";
-import IncreasePrice from "@/components/products/IncreasePrice";
-import DecreasePrice from "@/components/products/DecreasePrice";
-import AllProducts from "@/components/products/AllProducts";
+
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
