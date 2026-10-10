@@ -12,7 +12,7 @@ Explore everyday essentials, follow price changes, and compare prices across loc
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-Styling-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Better Auth](https://img.shields.io/badge/Better_Auth-Authentication-242424?style=for-the-badge)
 
-**[🎨 Figma Design](https://www.figma.com/design/gTG4sGDQCDvb4EWBEekXPa/Bazardor-_-Assignment-07?node-id=0-1&t=zMAzEQBuFTqqcWDK-1)** · **Live Demo:** _Add your deployed URL_ · **GitHub:** _Add your repository URL_
+**[🎨 Figma Design](https://www.figma.com/design/gTG4sGDQCDvb4EWBEekXPa/Bazardor-_-Assignment-07?node-id=0-1&t=zMAzEQBuFTqqcWDK-1)** · **Live Demo:** https://bazardor-dotcom.vercel.app/ · **GitHub:** https://github.com/billalhossain404/bazardor-dotcom
 
 </div>
 
@@ -203,9 +203,6 @@ Before deploying:
 3. Verify sign-in, sign-out, profile updates, and protected product routes on the deployed site.
 4. Test direct navigation and browser refresh on dynamic category and product URLs.
 
-## 🎨 UI/UX Reference
-
-The interface is inspired by the **[BazarDor — Assignment 07 Figma design](https://www.figma.com/design/gTG4sGDQCDvb4EWBEekXPa/Bazardor-_-Assignment-07?node-id=0-1&t=zMAzEQBuFTqqcWDK-1)** and uses a light, green-accented visual language with Bengali content and compact product cards.
 
 ## 📌 Project Context
 
