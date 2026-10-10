@@ -4,7 +4,7 @@ import { IoTriangle } from 'react-icons/io5';
 
 const IncreasePrice = async () => {
 
-    const res = await fetch('https://api.api-store.workers.dev/api/bazardor/products');
+    const res = await fetch('https://api.abcz.workers.dev/api/bazardor/products');
     const data = await res.json();
     const IncreasePrice = data.filter(p => p.change?.dir === "up").slice(0, 6);
 

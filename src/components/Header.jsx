@@ -1,19 +1,29 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useSession, signOut } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { LuUserRound } from "react-icons/lu";
 
 const Header = () => {
+   const [date, setDate] = useState("");
 
+  useEffect(() => {
+    const currentDate = new Date().toLocaleDateString("bn-BD", {
+      dateStyle: "full",
+      timeZone: "Asia/Dhaka",
+    });
+
+    setDate(currentDate);
+  }, []);
     const { data: session, isPending } = useSession();
 
-    const date = new Date().toLocaleDateString("bn-BD", {
-        dateStyle: "full"
-    });
+    // const date = new Date().toLocaleDateString("bn-BD", {
+    //     dateStyle: "full"
+    // });
 
 
     const authLinks = <>
@@ -106,7 +116,7 @@ const Header = () => {
                             <h2 className="text-xl sm:text-2xl font-bold">
                                 বাজার দর
                             </h2>
-                            <p className="text-[#1D271F]">{date}</p>
+                            <p className="text-[#1D271F]">{date || 'Loading.....'} </p>
                         </div>
                     </div>
                 </Link>

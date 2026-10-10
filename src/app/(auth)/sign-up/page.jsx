@@ -2,7 +2,7 @@
 
 import { signUp, signIn } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField, }
-from "@heroui/react";
+    from "@heroui/react";
 import Link from "next/link";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,6 +28,15 @@ export default function Basic() {
             password: data.password,
             callbackURL: "/",
         });
+
+        if (error) {
+            toast.error("অ্যাকাউন্ট তৈরি হয়নি!");
+        } else {
+            toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!");
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 100);
+        }
 
     };
 

@@ -115,7 +115,7 @@ Product and category information is retrieved from the assignment's BazarDor API
 **Primary API base URL:**
 
 ```text
-https://api.api-store.workers.dev/api/bazardor
+https://api.abcz.workers.dev/api/bazardor
 ```
 
 **Alternative API base URL:**

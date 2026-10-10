@@ -1,13 +1,22 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Banner = () => {
 
-    const date = new Date().toLocaleDateString("bn-BD", {
-        dateStyle: "full"
+   const [date, setDate] = useState("");
+
+  useEffect(() => {
+    const currentDate = new Date().toLocaleDateString("bn-BD", {
+      dateStyle: "full",
+      timeZone: "Asia/Dhaka",
     });
+
+    setDate(currentDate);
+  }, []);
 
     return (
         <div className="bg-[#eff4ef] px-4 sm:px-6 lg:px-40 py-5">

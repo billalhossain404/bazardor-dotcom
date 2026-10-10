@@ -3,9 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 import { IoTriangle } from "react-icons/io5";
+export const instant = false;
 
 const getCards = async () => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
     const data = await res.json();
     return data;
 };
