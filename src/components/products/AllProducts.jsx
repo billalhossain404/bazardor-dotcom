@@ -20,7 +20,7 @@ const AllProducts = async () => {
                 {AllProducts.map(incP => (
 
                     <Link key={incP.id} href={`/${incP.categorySlug || incP.category?.slug || (typeof incP.category === "string" ? incP.category : "")}/${incP.id}`}
-                        className="bg-[#fbfdfb] border border-[#dfe7df] rounded-[22px] p-5">
+                        className="bg-[#fbfdfb] border border-[#dfe7df] rounded-[22px] p-5 transition-all duration-300 ease-in-out hover:border-green-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
 
                         <div className="flex items-center gap-4">
 

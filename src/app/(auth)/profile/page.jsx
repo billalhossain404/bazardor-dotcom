@@ -55,7 +55,7 @@ export default function ProfilePage() {
     };
 
     if (isPending) return <p>Loading...</p>;
-    if (!session?.user) return <p>প্রথমে লগইন করুন।</p>;
+    if (!session?.user) return <p className="mx-auto my-10 w-fit rounded-xl border border-green-200 bg-green-50 px-10 py-6 text-center text-2xl font-semibold text-green-700 shadow-md">প্রথমে লগইন করুন।</p>;
 
     const user = session.user;
 

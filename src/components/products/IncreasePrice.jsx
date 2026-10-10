@@ -9,6 +9,7 @@ const IncreasePrice = async () => {
     const IncreasePrice = data.filter(p => p.change?.dir === "up").slice(0, 6);
 
     return (
+
         <div className='px-4 sm:px-6 lg:px-40 pt-5 pb-10 bg-[#eff4ef]'>
             <div className='flex gap-3 '>
                 <IoTriangle className="text-[10px] text-red-600 mt-2" />
@@ -18,7 +19,7 @@ const IncreasePrice = async () => {
 
                 {IncreasePrice.map(incP => (
                     <Link key={incP.id} href={`/${incP.categorySlug || incP.category?.slug || (typeof incP.category === "string" ? incP.category : "")}/${incP.id}`}
-                        className="bg-[#fbfdfb] border border-[#dfe7df] rounded-[22px] p-5" >
+                        className="bg-[#fbfdfb] border border-[#dfe7df] rounded-[22px] p-5 transition-all duration-300 ease-in-out hover:border-green-500 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]" >
                         <div className="flex items-center gap-3">
                             <div className="w-12 h-12 bg-[#f0f5f1] rounded-xl flex items-center justify-center text-2xl">
                                 {incP.categoryIcon}
