@@ -1,3 +1,4 @@
+import SortSelect from "@/components/SortSelected";
 import React from "react";
 import { IoTriangle } from "react-icons/io5";
 
@@ -7,12 +8,19 @@ const getCards = async () => {
     return data;
 };
 
-const PageDetails = async ({ params }) => {
+const PageDetails = async ({ params, searchParams }) => {
 
     const { slug } = await params;
+    const { sort = "default" } = await searchParams;
     const cardData = await getCards();
+    const products = cardData.filter((p) => p.categorySlug === slug || p.category?.slug === slug || p.category === slug);
 
-    const products = cardData.filter((p) => p.categorySlug === slug ||p.category?.slug === slug || p.category === slug );
+    if (sort === "low") {
+        products.sort((a, b) => Number(a.today) - Number(b.today));
+    }
+    if (sort === "high") {
+        products.sort((a, b) => Number(b.today) - Number(a.today));
+    }
 
     const singleCard = products[0];
 
@@ -34,7 +42,7 @@ const PageDetails = async ({ params }) => {
 
                 <div className="flex items-center justify-end gap-3">
                     <span className="text-sm text-gray-500">সাজান</span>
-                    <select className="border border-gray-200 rounded-md p-2 text-sm"><option>ডিফল্ট</option> </select>
+                    <SortSelect sort={sort} />
                 </div>
 
             </div>
@@ -65,9 +73,9 @@ const PageDetails = async ({ params }) => {
                                 <h2 className="text-xl font-bold text-[#1e2a20]"> {incP.today}<span className="text-sm font-normal ml-1"> টাকা</span> </h2>
                             </div>
 
-                            <span className={"flex items-center gap-1 bg-[#f1f5f1] rounded-full px-3 py-1 text-xs font-semibold " +(incP.change?.dir === "up"
-                                    ? "text-red-600"
-                                    : incP.change?.dir === "down"
+                            <span className={"flex items-center gap-1 bg-[#f1f5f1] rounded-full px-3 py-1 text-xs font-semibold " + (incP.change?.dir === "up"
+                                ? "text-red-600"
+                                : incP.change?.dir === "down"
                                     ? "text-green-600"
                                     : "text-gray-500")}>
 
@@ -77,7 +85,7 @@ const PageDetails = async ({ params }) => {
                                             "text-[10px] " +
                                             (incP.change.dir === "down"
                                                 ? "rotate-180"
-                                                : "") } />
+                                                : "")} />
                                 )}
                                 {Math.abs(Number(incP.change?.pct ?? 0))}%
                             </span>

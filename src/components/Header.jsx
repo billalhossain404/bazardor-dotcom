@@ -13,9 +13,9 @@ const Header = () => {
 
     const { data: session, isPending } = useSession();
 
-    // const date = new Date().toLocaleDateString("bn-BD", {
-    //     dateStyle: "full"
-    // });
+    const date = new Date().toLocaleDateString("bn-BD", {
+        dateStyle: "full"
+    });
 
 
     const authLinks = <>
@@ -115,7 +115,7 @@ const Header = () => {
                             <h2 className="text-2xl font-bold">
                                 বাজার দর
                             </h2>
-                            {/* <p className="text-[#1D271F]">{date}</p> */}
+                            <p className="text-[#1D271F]">{date}</p>
                         </div>
                     </div>
                 </Link>

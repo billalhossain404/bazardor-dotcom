@@ -102,15 +102,11 @@ export default function ProfilePage() {
                     >
                         <Fieldset className="w-full">
 
-                            <Fieldset.Legend>
+                            <Fieldset.Legend className="text-xl font-semibold">
                                 তথ্য
                             </Fieldset.Legend>
 
-                            <Description>
-                                আপনার নাম পরিবর্তন করুন।
-                            </Description>
-
-                            <FieldGroup>
+                            <FieldGroup className="px-5">
                                 <TextField
                                     name="name"
                                     defaultValue={user.name}
@@ -121,7 +117,7 @@ export default function ProfilePage() {
                                         }
                                         return null;
                                     }}>
-                                    <Label>নাম</Label>
+                                    <Label className="mt-3">নাম</Label>
                                     <Input
                                         required
                                         placeholder="আপনার নাম লিখুন"
@@ -130,7 +126,7 @@ export default function ProfilePage() {
                                     <FieldError />
                                 </TextField>
                             </FieldGroup>
-                            <Fieldset.Actions className="w-full">
+                            <Fieldset.Actions className="w-full px-5">
 
                                 <Button
                                     type="submit"
