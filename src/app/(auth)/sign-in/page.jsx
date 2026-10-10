@@ -25,11 +25,18 @@ export default function Basic() {
         setLoading(true);
         setErrorMessage("");
 
+        const requested = new URLSearchParams(window.location.search).get("callbackURL");
+
+        const callbackURL =
+            requested?.startsWith("/") && !requested.startsWith("//")
+                ? requested
+                : "/";
+
         try {
             const { data: resdata, error } = await signIn.email({
                 email: data.email,
                 password: data.password,
-                callbackURL: "/",
+                callbackURL: callbackURL,
             });
 
             if (error) {
@@ -174,7 +181,7 @@ export default function Basic() {
                 </div>
 
                 {/* Social Login */}
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 
                     {/* Google Login */}
                     <Button

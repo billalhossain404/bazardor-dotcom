@@ -1,7 +1,7 @@
 "use client";
 
 import { updateUser, useSession, signOut } from "@/lib/auth-client";
-import { Button, Description, FieldError, FieldGroup, Fieldset, Form, Input, Label, TextField } from "@heroui/react";
+import { Button, FieldError, FieldGroup, Fieldset, Form, Input, Label, TextField } from "@heroui/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast, Bounce, ToastContainer } from "react-toastify";
@@ -60,7 +60,7 @@ export default function ProfilePage() {
     const user = session.user;
 
     return (
-        <div className="bg-[#F2F7F3] min-h-screen p-8">
+        <div className="bg-[#F2F7F3] min-h-screen p-4 sm:p-8">
             <ToastContainer />
 
             <div className="max-w-4xl mx-auto">
@@ -68,7 +68,7 @@ export default function ProfilePage() {
                 <h2 className="text-2xl font-bold">আমার প্রোফাইল</h2>
                 <p className="text-gray-500 mb-6"> আপনার অ্যাকাউন্টের তথ্য এখানে দেখুন। </p>
 
-                <div className="bg-white rounded-2xl border p-6 flex items-center gap-4 mb-6">
+                <div className="bg-white rounded-2xl border p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
                     {user.image ? (
                         <Image
                             src={user.image}
@@ -83,10 +83,10 @@ export default function ProfilePage() {
                             {user.name?.charAt(0)}
                         </div>
                     )}
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                         <h2 className="text-xl font-bold">{user.name}</h2>
 
-                        <p className="text-gray-500"> {user.email}</p>
+                        <p className="text-gray-500 break-all"> {user.email}</p>
                     </div>
                     <Button
                         onPress={handleSignOut}

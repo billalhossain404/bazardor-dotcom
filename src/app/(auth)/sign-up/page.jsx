@@ -1,9 +1,8 @@
-
 "use client";
 
 import { signUp, signIn } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField, }
-    from "@heroui/react";
+from "@heroui/react";
 import Link from "next/link";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,19 +31,19 @@ export default function Basic() {
 
     };
 
-    const handleGoogleSignIn = async () =>{
+    const handleGoogleSignIn = async () => {
         const resdata = await signIn.social({
-            provider : "google"
+            provider: "google"
         });
     };
 
-     const handleGithubSignIn = async () =>{
+    const handleGithubSignIn = async () => {
         const resdata = await signIn.social({
-            provider : "github"
+            provider: "github"
         });
     };
 
-    
+
 
     const handleSocialLogin = async (provider) => {
         const { data, error } = await signIn.social({
@@ -241,7 +240,7 @@ export default function Basic() {
                     </div>
 
 
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         <Button
                             onClick={handleGoogleSignIn}
                             className="h-10 w-full rounded-lg border border-[#DFE7DF] bg-transparent px-2 text-xs font-semibold text-[#263028] whitespace-nowrap gap-2"

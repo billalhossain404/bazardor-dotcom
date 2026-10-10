@@ -14,6 +14,7 @@ const notoSerifBengali = Noto_Serif_Bengali({
 export const metadata = {
   title: "BazarDor | আজকের বাজারদর ও পণ্যের দাম",
   description: "BazarDor.com থেকে জানুন বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের সর্বশেষ বাজারদর। পণ্যের দাম তুলনা করুন, বাজারের আপডেট দেখুন এবং স্মার্ট কেনাকাটা করুন।",
+  icons: {icon: "/favicon.png"},
 };
 
 export default function RootLayout({ children }) {

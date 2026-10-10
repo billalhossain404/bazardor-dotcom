@@ -14,11 +14,11 @@ const Marquee = async () => {
 
                 {headLine.map(h => (<span key={h.id} className="flex items-center mr-10 gap-5">
                     {h.categoryIcon} {h.nameBn} {h.today} টাকা/কেজি
-                    
-                    <span className={`flex items-center ${ h.change.dir === "up" ? "text-red-600" : "text-green-600"}`}>
-            <IoTriangle className={h.change.dir === "down" ? "rotate-180" : ""}/>
-                {Math.abs(Number(h.change.pct))}%
-        </span></span>  ))}
+
+                    <span className={`flex items-center ${h.change.dir === "up" ? "text-red-600" : "text-green-600"}`}>
+                        <IoTriangle className={h.change.dir === "down" ? "rotate-180" : ""} />
+                        {Math.abs(Number(h.change.pct))}%
+                    </span></span>))}
 
             </MarqueeText>
         </div>

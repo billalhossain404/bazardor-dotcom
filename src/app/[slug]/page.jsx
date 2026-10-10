@@ -1,4 +1,6 @@
 import SortSelect from "@/components/SortSelected";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import React from "react";
 import { IoTriangle } from "react-icons/io5";
 
@@ -15,6 +17,9 @@ const PageDetails = async ({ params, searchParams }) => {
     const cardData = await getCards();
     const products = cardData.filter((p) => p.categorySlug === slug || p.category?.slug === slug || p.category === slug);
 
+    if (products.length === 0) {
+        notFound();
+    }
     if (sort === "low") {
         products.sort((a, b) => Number(a.today) - Number(b.today));
     }
@@ -51,8 +56,10 @@ const PageDetails = async ({ params, searchParams }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
+
                 {products.map((incP) => (
-                    <div key={incP.id} className="bg-[#fbfdfb] border border-[#e0e8df] rounded-2xl p-4" >
+                    <Link key={incP.id}  href={`/${slug}/${incP.id}`}
+                        className="bg-[#fbfdfb] border border-[#e0e8df] rounded-2xl p-4">
 
                         <div className="flex items-center gap-3">
                             <div className="w-12 h-12 bg-[#f0f5f1] rounded-xl flex items-center justify-center text-2xl">
@@ -63,7 +70,6 @@ const PageDetails = async ({ params, searchParams }) => {
                                 <h3 className="font-bold text-[#1e2a20]">{incP.nameBn}</h3>
                                 <p className="text-sm text-gray-600"> প্রতি কেজি </p>
                             </div>
-
                         </div>
 
                         <div className="flex items-end justify-between mt-4">
@@ -90,7 +96,7 @@ const PageDetails = async ({ params, searchParams }) => {
                                 {Math.abs(Number(incP.change?.pct ?? 0))}%
                             </span>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

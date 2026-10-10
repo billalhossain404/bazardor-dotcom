@@ -1,7 +1,5 @@
-
 "use client";
 
-import { Button } from "@heroui/react";
 import { useSession, signOut } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,9 +28,7 @@ const Header = () => {
                                 alt="Profile"
                                 width={38}
                                 height={38}
-                                className="rounded-xl object-cover w-9 h-9"
-                            />
-                        ) : (
+                                className="rounded-xl object-cover w-9 h-9" />) : (
                             <div className="w-9 h-9 rounded-full bg-green-600 text-white flex items-center justify-center font-bold">
                                 {session.user.name?.charAt(0)}
                             </div>
@@ -61,8 +57,7 @@ const Header = () => {
 
                         <Link
                             href="/profile"
-                            className="flex items-center gap-2 text-[14px] text-gray-700 hover:text-green-600 py-2"
-                        >
+                            className="flex items-center gap-2 text-[14px] text-gray-700 hover:text-green-600 py-2">
                             <span><LuUserRound /></span>
                             আমার প্রোফাইল
                         </Link>
@@ -70,14 +65,11 @@ const Header = () => {
                         <button
                             type="button"
                             onClick={() => signOut()}
-                            className="flex items-center gap-2 text-[14px] text-red-500 hover:text-red-600 py-2 cursor-pointer w-full"
-                        >
+                            className="flex items-center gap-2 text-[14px] text-red-500 hover:text-red-600 py-2 cursor-pointer w-full" >
                             <span>↪</span>
                             সাইন আউট
                         </button>
-
                     </div>
-
                 </details>
             ) : (
                 <div className="flex gap-4 text-[15px] font-semibold justify-center items-center">
@@ -96,11 +88,10 @@ const Header = () => {
         )}
     </>;
 
-
     return (
         <div>
 
-            <div className="flex justify-between items-center px-40 mt-5">
+            <div className="flex justify-between items-center gap-4 px-4 sm:px-6 lg:px-40 mt-5">
 
                 <Link href="/">
                     <div className="flex items-center gap-3">
@@ -111,8 +102,8 @@ const Header = () => {
                             src="/logo-icon.png"
                             alt="Bazardor.com"
                         />
-                        <div>
-                            <h2 className="text-2xl font-bold">
+                        <div className="min-w-0">
+                            <h2 className="text-xl sm:text-2xl font-bold">
                                 বাজার দর
                             </h2>
                             <p className="text-[#1D271F]">{date}</p>
@@ -123,7 +114,7 @@ const Header = () => {
                 {authLinks}
 
             </div>
-              <hr className="border-t border-gray-100 opacity-120 mt-4 mb-2" />
+            <hr className="border-t border-gray-100 opacity-120 mt-4 mb-2" />
         </div>
     );
 };
